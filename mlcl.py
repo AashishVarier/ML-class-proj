@@ -1,4 +1,4 @@
-#!/home/littlegaintl/Codespace/MLclass/env python
+#!/usr/bin/env python3
 
 # Compare LR,KNN,CART,NB,SVM Algorithms
 import matplotlib.pyplot as plt
@@ -55,7 +55,7 @@ results = []
 names = []
 scoring = 'accuracy'
 for name, model in models:
-    kfold = model_selection.KFold(n_splits=10, random_state=seed)
+    kfold = model_selection.KFold(n_splits=10, shuffle=True, random_state=seed)
     cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring=scoring)
     results.append(cv_results)
     names.append(name)
